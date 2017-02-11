@@ -1,4 +1,4 @@
-package com.zappos.namanrajpal.ilovezappos;
+package com.zappos.namanrajpal.ilovezappos.Utils;
 
 import com.zappos.namanrajpal.ilovezappos.Model.Product;
 
@@ -11,5 +11,15 @@ import java.util.List;
 
 public class ReturnedProducts implements Serializable {
 
+    public List<Product> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Product> results) {
+        this.results = results;
+    }
+
     List<Product> results;
+
+
 }

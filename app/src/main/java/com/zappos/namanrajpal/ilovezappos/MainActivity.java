@@ -25,6 +25,8 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 
+import com.zappos.namanrajpal.ilovezappos.Utils.ReturnedProducts;
+import com.zappos.namanrajpal.ilovezappos.Utils.ZapposAPI;
 import com.zappos.namanrajpal.ilovezappos.databinding.*;
 
 import butterknife.BindView;
@@ -192,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
 
 
     private void displayResults(ReturnedProducts searchResults) {
-        Log.d("Total search results: ", searchResults.results.get(0).getProductName());
+        Log.d("Total search results: ", searchResults.getResults().get(0).getProductName());
 
 
         displayProgress(false);
@@ -200,13 +202,13 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
         if (pAdapter == null) {
             //Creaating an Adapter
             //Adapter containes Listner interfaces
-            pAdapter = new ProductsRecyclerAdapter(searchResults.results,this);
+            pAdapter = new ProductsRecyclerAdapter(searchResults.getResults(),this);
             mSearchResultsRecyclerView.setAdapter(pAdapter);
             savedResults = searchResults;
-            ((DataBindingApplication) getApplication()).setProducts(searchResults.results);
+            ((DataBindingApplication) getApplication()).setProducts(searchResults.getResults());
         } else {
             ((DataBindingApplication) getApplication()).getProducts().clear();
-            ((DataBindingApplication) getApplication()).getProducts().addAll(searchResults.results);
+            ((DataBindingApplication) getApplication()).getProducts().addAll(searchResults.getResults());
             pAdapter.notifyDataSetChanged();
         }
 
@@ -296,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
     @Override
     public boolean onItemLongClicked(int position) {
         //Toast.makeText(getBaseContext(), savedResults.results.get(position).getProductName() + " is added to cart", Toast.LENGTH_SHORT).show();
-        Snackbar.make(fab, savedResults.results.get(position).getProductName() + " is added to cart", Snackbar.LENGTH_LONG)
+        Snackbar.make(fab, savedResults.getResults().get(position).getProductName() + " is added to cart", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
         ((DataBindingApplication) getApplication()).addToCart(position);
         fab.startAnimation(fab_animations);

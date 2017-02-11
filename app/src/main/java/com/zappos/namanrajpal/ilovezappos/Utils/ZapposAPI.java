@@ -1,8 +1,9 @@
-package com.zappos.namanrajpal.ilovezappos;
+package com.zappos.namanrajpal.ilovezappos.Utils;
 
 /**
  * Created by Naman Rajpal on 2/2/2017.
  */
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
