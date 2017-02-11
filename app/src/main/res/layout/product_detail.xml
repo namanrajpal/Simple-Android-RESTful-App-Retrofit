@@ -43,7 +43,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="420dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="@dimen/activity_vertical_margin"
             android:paddingBottom="@dimen/spacing_normal"
@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/book_thumbnail_imageview"
-                android:layout_width="220dp"
-                android:layout_height="260dp"
+                android:layout_width="200dp"
+                android:layout_height="240dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="@dimen/spacing_large"
@@ -102,11 +102,7 @@
                 tools:text="Price" />
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:padding="@dimen/spacing_normal">
+
 
                 <Button
                     android:id="@+id/show_previous_book_button"
@@ -128,7 +124,6 @@
                     android:text="Next" />
 
 
-            </RelativeLayout>
 
         </RelativeLayout>
         <Button
