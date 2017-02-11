@@ -36,9 +36,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
+/*
+Author: Naman Rajpal
+www.rajpalnaman.net
+* */
 public class MainActivity extends AppCompatActivity implements ProductsRecyclerAdapter.OnItemClickListener,ProductsRecyclerAdapter.OnItemLongClickListener{
 
+    //saved results to be used for handling configs
     ReturnedProducts savedResults;
 
     @BindView(R.id.searchView)
@@ -60,9 +64,10 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
 
     private ProductsRecyclerAdapter pAdapter;
 
+    //Animation to be used for FAB
     Animation fab_rotate;
-    Animation fab_rotateback;
     AnimationSet fab_animations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         fab_rotate = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate);
-        fab_rotateback = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_back);
+
         fab_animations = new AnimationSet(false);//false means don't share interpolators
         fab_animations.addAnimation(fab_rotate);
 
@@ -145,9 +150,8 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
             inputMethodManager.hideSoftInputFromWindow(searchBar.getWindowToken(), 0);
             //searchBar.clearFocus();
 
-
         }
-
+        //Initializing API and RETROFIT
         init();
     }
 
@@ -155,12 +159,9 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
     @Override
     protected void onSaveInstanceState(Bundle outState) {
 
-        // Make sure to call the super method so that the states of our views are saved
-
         super.onSaveInstanceState(outState);
 
-        // Save our own state now
-
+        // Saving state now
         outState.putSerializable("MyProducts", savedResults);
 
     }
@@ -211,7 +212,6 @@ public class MainActivity extends AppCompatActivity implements ProductsRecyclerA
             ((DataBindingApplication) getApplication()).getProducts().addAll(searchResults.getResults());
             pAdapter.notifyDataSetChanged();
         }
-
 
     }
 
