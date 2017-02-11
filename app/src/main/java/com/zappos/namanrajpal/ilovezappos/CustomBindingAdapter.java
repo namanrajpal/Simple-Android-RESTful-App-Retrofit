@@ -13,7 +13,7 @@ public class CustomBindingAdapter {
     public static void loadImage(ImageView imageView, String url) {
         Picasso.with(imageView.getContext()).load(url).into(imageView);
     }
-
+    //Used for visiblity of previous and next buttons
     @BindingAdapter({"visibilityOnIndex"})
     public static void toggleVisibility(View view, int index) {
         view.setVisibility(index > 0 ? View.VISIBLE : View.GONE);
