@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="product"
+            type="com.zappos.namanrajpal.ilovezappos.Model.Product" />
+    </data>
+
+
+
+        <android.support.v7.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            card_view:cardUseCompatPadding="true"
+            android:stateListAnimator="@animator/lift_on_touch"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+
+            >
+
+            <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/spacing_normal"
+                android:paddingLeft="@dimen/spacing_large"
+                android:paddingRight="@dimen/spacing_large"
+                android:paddingTop="@dimen/spacing_normal">
+
+
+
+                <!-- Add Your Existing layout here-->
+                <ImageView
+                    android:id="@+id/product_thumbnail_imageview"
+                    android:layout_width="130dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:layout_gravity="center_horizontal"
+                    app:imageUrl="@{product.thumbnailImageUrl}"
+                    tools:src="@android:drawable/sym_def_app_icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_normal">
+
+                    <TextView
+                        android:id="@+id/prodct_name_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_size_normal"
+                        android:text="@{product.productName}"
+                        tools:text="Title" />
+
+                    <TextView
+                        android:id="@+id/product_brand_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{product.brandName}"
+                        android:textSize="@dimen/text_size_normal"
+                        tools:text="Author name" />
+
+                    <TextView
+                        android:id="@+id/product_price_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@{product.price}"
+                        android:textSize="@dimen/text_size_normal"
+                        tools:text="Publisher name" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+</layout>

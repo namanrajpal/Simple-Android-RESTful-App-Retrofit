@@ -1,0 +1,53 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.zappos.namanrajpal.ilovezappos.MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:elevation="4dp"
+            android:background="#fff"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+        </SearchView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_results_rview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/spacing_normal" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:foregroundGravity="center"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
+
+
+
+
+
+
